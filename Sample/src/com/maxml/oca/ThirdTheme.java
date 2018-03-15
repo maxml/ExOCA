@@ -32,6 +32,20 @@ public class ThirdTheme {
 //        exParsingDateTime();
 
 //        exEquallityStringBuilder();
+
+//        try {
+//            exException();
+//        } catch (Exception ex) {
+//        } catch (OpenException e) {
+//            System.out.println("sdfsd");
+//        } catch (CloseException e) {
+//            System.out.println("asdfvsd");
+//        }
+
+//        C obj = exExtends();
+//        System.out.println(obj.toString());
+//        System.out.println(obj instanceof C);
+//        System.out.println(obj instanceof A);
     }
 
     public static void exEquallityStringBuilder() {
@@ -237,5 +251,62 @@ public class ThirdTheme {
     private static void exValueOf() {
         String buff = "a";
         System.out.println(Integer.valueOf(buff));
+    }
+
+    private static class OpenException extends Exception {
+    }
+
+    private static class CloseException extends Exception {
+    }
+
+    // https://docs.oracle.com/javase/8/docs/technotes/guides/language/catch-multiple.html
+    private static void exException() throws OpenException, CloseException {
+        // more precise rethrow
+        boolean flag = true;
+        try {
+            if (flag) {
+                throw new OpenException();
+            } else {
+                throw new CloseException();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+
+//        try {
+//            throw new Error();
+//        } catch (Throwable e) {
+//            throw e;
+//        }
+    }
+
+    private static class A extends C {
+        @Override
+        public String toString() {
+            return "A";
+        }
+    }
+
+    private static class B extends C {
+        @Override
+        public String toString() {
+            return "B";
+        }
+    }
+
+    private static class C {
+        @Override
+        public String toString() {
+            return "C";
+        }
+    }
+
+    private static C exExtends() {
+        boolean flag = true;
+        if (flag) {
+            return new A();
+        } else {
+            return new B();
+        }
     }
 }
