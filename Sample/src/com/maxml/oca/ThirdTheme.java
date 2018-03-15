@@ -53,7 +53,9 @@ public class ThirdTheme {
 //            e.printStackTrace();
 //        }
 
-        exError();
+//        exError();
+
+        exFailClose();
     }
 
     public static void exEquallityStringBuilder() {
@@ -383,4 +385,51 @@ public class ThirdTheme {
         }
     }
 
+    private static class Y {
+        public Y() {
+            throw new RuntimeException();
+        }
+    }
+
+    private static void exFailInit() {
+        int x;
+        if (true) {
+            x = 1;
+        }
+//        System.out.println(x);
+
+        Y y;
+        try {
+            y = new Y();
+        } catch (Exception ex) {
+
+        }
+//        System.out.println(y);
+    }
+
+    private static class FailClose implements AutoCloseable {
+        public FailClose() throws Exception {
+            System.out.println("start");
+            throw new CloseException();
+        }
+
+        @Override
+        public void close() throws Exception {
+            System.out.println("close");
+            throw new OpenException();
+        }
+    }
+
+    private static void exFailClose() {
+        try (FailClose fc = new FailClose(); FailClose fc2 = new FailClose()) {
+            System.out.println("body");
+            throw new Exception("dfdfd");
+        } catch (OpenException e) {
+            System.out.println("open exception");
+        } catch (CloseException e) {
+            System.out.println("close exception");
+        } catch (Exception e) {
+            System.out.println("catch exception");
+        }
+    }
 }

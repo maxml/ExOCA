@@ -2,7 +2,7 @@ package com.maxml.oca;
 
 public class InitOrder {
 
-    //    {
+    //        {
 //        System.out.println(name);
 //    }
     private String name;
@@ -24,11 +24,11 @@ public class InitOrder {
         System.out.println(order.name4);
     }
 
-    private Integer name2 = new Integer(3);
+    private Integer name2 = Integer.valueOf(3);
     private Integer name3 = name2;
 
     {
-        name2 = new Integer(4);
+        name2 = Integer.valueOf(4);
         System.out.println("Name = " + name);
         name3 = null;
     }
