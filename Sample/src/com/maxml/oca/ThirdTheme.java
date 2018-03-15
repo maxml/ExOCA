@@ -46,6 +46,14 @@ public class ThirdTheme {
 //        System.out.println(obj.toString());
 //        System.out.println(obj instanceof C);
 //        System.out.println(obj instanceof A);
+
+//        try {
+//            exAutoCloseable2();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+        exError();
     }
 
     public static void exEquallityStringBuilder() {
@@ -309,4 +317,70 @@ public class ThirdTheme {
             return new B();
         }
     }
+
+    private static void exError() {
+        try {
+            throw new RuntimeException();
+        } catch (Error e) {
+
+        }
+
+        try {
+//            if (tr ue) {
+            throw new Error();
+//            } else {
+//                throw new Error();
+//            }
+        } finally {
+            System.out.println("sdf");
+        }
+//        System.out.println("sdfdv");
+
+    }
+
+
+    private static void exError2() {
+        try {
+            System.out.println("0");
+            throw new RuntimeException();
+        } catch (Error e) {
+            System.out.println("1");
+        } finally {
+            System.out.println("3");
+        }
+//        System.out.println("2");
+    }
+
+    private static class D implements AutoCloseable {
+
+        @Override
+        public void close() throws Exception {
+            System.out.println("asv");
+        }
+    }
+
+    private static void exAutoCloseable() {
+        try (D d = new D()) {
+            System.out.println("sdf");
+            throw new OpenException();
+        } catch (Exception e) {
+//            d.close();
+            System.out.println("yguk");
+        } finally {
+            System.out.println("asdf");
+        }
+        System.out.println("iyl");
+    }
+
+    private static void exAutoCloseable2() throws Exception {
+        D dext = new D();
+        try (D d = dext) {
+            System.out.println("sdf");
+            throw new OpenException();
+        } catch (Exception e) {
+            dext.close();
+            System.out.println("yguk");
+        }
+    }
+
 }
