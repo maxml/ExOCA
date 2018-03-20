@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,7 +33,7 @@ public class ThirdTheme {
 
 //        exStringBuilder();
 
-        exArrays();
+//        exArrays();
 
 //        exNewTimePackage();
 
@@ -44,7 +45,7 @@ public class ThirdTheme {
 
 //        exEquallityStringBuilder();
 
-//        exSubstring();
+        exSubstring();
 
 //        exCasting();
     }
@@ -123,7 +124,7 @@ public class ThirdTheme {
         LocalDate upTo = start;
         while (upTo.isBefore(end)) {
             System.out.println("new: " + upTo);
-            upTo = upTo.plus(period); // adds the period
+            upTo = upTo.plus(period);
         }
     }
 
@@ -132,8 +133,8 @@ public class ThirdTheme {
         LocalTime time = LocalTime.of(6, 15);
         LocalDateTime dateTime = LocalDateTime.of(date, time);
         Period period2 = Period.ofMonths(1);
-        System.out.println(date.plus(period2)); // 2015-02-20
-        System.out.println(dateTime.plus(period2)); // 2015-02-20T06:15
+        System.out.println(date.plus(period2));
+        System.out.println(dateTime.plus(period2));
         System.out.println(time.plus(period2));
     }
 
@@ -226,14 +227,14 @@ public class ThirdTheme {
         StringBuilder temp2 = new StringBuilder("abc");
         System.out.println(temp1.equals(temp2));
         System.out.println(temp1 == temp2);
+
+//        StringBuilder temp = "rumble";
+//        temp.append(4).deleteCharAt(3).delete(3, temp.length() - 1);
     }
 
     private static void exStringPool() {
         String name = "JVMKnowing";
         String name2 = new String("no for JVM");
-
-        String result = "AniMaL ".trim().toLowerCase().replace('a', 'A');
-        System.out.println(result);
 
         String x = "Hello World";
         String z = " Hello World".trim();
@@ -241,6 +242,9 @@ public class ThirdTheme {
     }
 
     private static void exReplace() {
+        String result = "AniMaL ".trim().toLowerCase().replace('a', 'A');
+        System.out.println(result);
+
 //        System.out.println(new String("abc").replace('a', "A"));
     }
 
@@ -249,10 +253,10 @@ public class ThirdTheme {
         s.toLowerCase();
         System.out.println(s);
 
-        String s1 = "1";
-        String s2 = s1.concat("2");
-        s2.concat("3");
-        System.out.println(s2);
+//        String s1 = "1";
+//        String s2 = s1.concat("2");
+//        s2.concat("3");
+//        System.out.println(s2);
     }
 
     private static void exConcatenation() {
@@ -283,7 +287,6 @@ public class ThirdTheme {
 //            System.out.print("1");
 //        if (s1.equals(s2))
 //            System.out.print("2");
-
     }
 
     private static void exAutoboxing() {
@@ -294,8 +297,17 @@ public class ThirdTheme {
     }
 
     private static void exSubstring() {
-        System.out.println("123".substring(1, 1));
+        String numbers = "012345678";
+        System.out.println(numbers.substring(1, 3));
 
+        System.out.println("123".substring(1, 1));
+        StringBuilder sb = new StringBuilder();
+        sb.append("aaa").insert(1, "bb").insert(4, "ccc");
+        System.out.println(sb);
+
+        String s = "";
+//        s += 'c' + false;
+        System.out.println("");
     }
 
     private static void exCasting() {
