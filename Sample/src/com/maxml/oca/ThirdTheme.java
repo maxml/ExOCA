@@ -7,6 +7,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * String: length(), charAt(exception), indexOf(-1), substring(exception: start > end, end > length()), toLowerCase(), toUpperCase()
+ * equals(), equalsIgnoreCase(), startWith(boolean), endWith(), contains(), replace(), trim()
+ * <p>
+ * StringBuilder: append(), insert(), delete(), deleteCharAt(), reverse(), toString()
+ * <p>
+ * Sorting: Numbers sort before letters and uppercase sorts before lowercase
+ * <p>
+ * ArrayList: add(), remove(), set(), isEmpty(), size(), clear(), contains(), equals()
+ */
 public class ThirdTheme {
 
     public static void main(String[] Args) {
@@ -14,7 +24,7 @@ public class ThirdTheme {
 
 //        exSecondTest();
 
-        exConcatenation();
+//        exConcatenation();
 
 //        exImmutable();
 
@@ -22,7 +32,7 @@ public class ThirdTheme {
 
 //        exStringBuilder();
 
-//        exArrays();
+        exArrays();
 
 //        exNewTimePackage();
 
@@ -33,9 +43,39 @@ public class ThirdTheme {
 //        exParsingDateTime();
 
 //        exEquallityStringBuilder();
+
+//        exSubstring();
+
+//        exCasting();
     }
 
-    public static void exEquallityStringBuilder() {
+    private static void exSecondTest() {
+        long x = 10;
+        int y = 2 * (short) x;
+
+        List<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(14);
+        for (int i : list) {
+            System.out.println(i + ", ");
+            continue;
+        }
+
+        int a = 5;
+        int b = a * 5 - a++;
+        System.out.println(b);
+
+        final char c = 'A', d = 'E';
+        char gra = 'B';
+        switch (gra) {
+            case c:
+                break;
+            case d:
+                break;
+        }
+    }
+
+    private static void exEquallityStringBuilder() {
         StringBuilder str1 = new StringBuilder("qwe");
         StringBuilder str2 = new StringBuilder("qwe");
         StringBuilder str3 = str2;
@@ -139,13 +179,19 @@ public class ThirdTheme {
         System.out.println(date);
     }
 
-    public static void exArrays() {
-//        int [] numbers;
-//        int [] numbers2, numbers3;
+    private static void exArrays() {
+//        int[] numbers;
+//        int numbers2[], numbers3 [];
 //        int [] numbers4, []numbers5;
 
-        int[] numbers = new int[6];
-//        System.out.println(numbers.equals(null));
+//        int [] numbers6, numbers7;
+//        numbers7 = 5;
+
+//        int d[][];
+//        int[] d2[], d3[], d4[][];
+
+        int[] numbers2 = new int[6];
+//        System.out.println(numbers2.equals(null));
 
         String[] strings = {"stringValue"};
         Object[] objects = strings;
@@ -154,9 +200,16 @@ public class ThirdTheme {
 //        objects[0] = new StringBuilder();
 
 //        int[][] args = new int[3][];
+
+        int[] numbers = {2, 4, 6, 8};
+        System.out.println(Arrays.binarySearch(numbers, 2));
+        System.out.println(Arrays.binarySearch(numbers, 4));
+        System.out.println(Arrays.binarySearch(numbers, 1));
+        System.out.println(Arrays.binarySearch(numbers, 3));
+        System.out.println(Arrays.binarySearch(numbers, 9));
     }
 
-    public static void exStringBuilder() {
+    private static void exStringBuilder() {
         StringBuilder a = new StringBuilder("abc");
         StringBuilder b = a.append("de");
         b = b.append("f").append("g");
@@ -168,6 +221,11 @@ public class ThirdTheme {
         sb.insert(0, "-");
         sb.insert(4, "-");
         System.out.println(sb);
+
+        StringBuilder temp1 = new StringBuilder("abc");
+        StringBuilder temp2 = new StringBuilder("abc");
+        System.out.println(temp1.equals(temp2));
+        System.out.println(temp1 == temp2);
     }
 
     private static void exStringPool() {
@@ -187,6 +245,10 @@ public class ThirdTheme {
     }
 
     private static void exImmutable() {
+        String s = "abc";
+        s.toLowerCase();
+        System.out.println(s);
+
         String s1 = "1";
         String s2 = s1.concat("2");
         s2.concat("3");
@@ -209,32 +271,6 @@ public class ThirdTheme {
         System.out.println(e);
     }
 
-    private static void exSecondTest() {
-        long x = 10;
-        int y = 2 * (short) x;
-
-        List<Integer> list = new ArrayList<>();
-        list.add(10);
-        list.add(14);
-        for (int i : list) {
-            System.out.println(i + ", ");
-            continue;
-        }
-
-        int a = 5;
-        int b = a * 5 - a++;
-        System.out.println(b);
-
-        final char c = 'A', d = 'E';
-        char gra = 'B';
-        switch (gra) {
-            case c:
-                break;
-            case d:
-                break;
-        }
-    }
-
     private static void exValueOf() {
         String buff = "a";
         System.out.println(Integer.valueOf(buff));
@@ -255,5 +291,38 @@ public class ThirdTheme {
         list.add(Integer.parseInt("4"));
         list.add(Integer.valueOf("4"));
         list.add(7);
+    }
+
+    private static void exSubstring() {
+        System.out.println("123".substring(1, 1));
+
+    }
+
+    private static void exCasting() {
+        String[] strings = {"stringValue"};
+        Object[] objects = strings;
+        String[] againStrings = (String[]) objects;
+//        againStrings[0] = new StringBuilder();
+        objects[0] = new StringBuilder();
+
+
+        List<Integer> list2 = new ArrayList<>();
+//        list2.add(null);
+//        System.out.println(list2.get(0));
+
+        List<String> temp = new ArrayList<>();
+        temp.add("hawk");
+        temp.add("robin");
+        System.out.println(temp.toArray().length);
+        String[] stringArray = temp.toArray(new String[0]);
+        System.out.println(stringArray.length);
+
+        String[] array = {"hawk", "robin"};
+        List<String> list = Arrays.asList(array);
+        System.out.println(list.size());
+        list.set(1, "test");
+        array[0] = "new";
+        for (String b : array) System.out.print(b + " ");
+//        list.remove(1);
     }
 }
