@@ -142,33 +142,6 @@ public class FirstTheme {
         // local, instance, class
     }
 
-    private static void exGson() {
-        String str = "{\n" +
-                "   \"DiagnosticResult\": {\n" +
-                "      \"captivePortalTest\": {\n" +
-                "         \"result\": \"OPEN\",\n" +
-                "         \"time\": \"2018-01-26T11:47:01+0200\",\n" +
-                "         \"url\": \"http://connectivitycheck.gstatic.com/generate_204\"\n" +
-                "      },\n" +
-                "      \"illegalCharacters\"\": {\n" +
-                "         \"octal\": \" 2 \",\n" +
-                "         \"t_symbol\": \"\t\",\n" +
-                "         \"n_symbol\": \"\n" +
-                "\",\n" +
-                "         \"quote\": \" \" \",\n" +
-                "         \"double_backslash\": \" \\ \",\n" +
-                "         \"double_slash\": \" // \",\n" +
-                "         \"single_quotes\": \" ' \",\n" +
-                "         \"unicode\": \" 2 \",\n" +
-                "         \"r_symbol\": \"\n" +
-                "\"\n" +
-                "      }\n" +
-                "   }\n" +
-                "}";
-        JsonObject obj = new Gson().fromJson(str, JsonObject.class);
-        System.out.println(obj.toString());
-    }
-
     private static void exClearList() {
         ArrayList list = new ArrayList();
         list.add("first");
